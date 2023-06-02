@@ -1,19 +1,40 @@
 import _ from 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
+const list = [
+  {
+    description: 'This is a description',
+    checked: false,
+  },
+  {
+    description: 'This is another description',
+    checked: true,
+  },
+];
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const sect = document.getElementById('list');
+list.forEach((item) => {
+  const div = document.createElement('div');
+  div.className = 'item';
+  const input = document.createElement('input');
+  input.classList.add('checkbox');
+  input.type = 'checkbox';
+  input.checked = item.checked;
+  const p = document.createElement('p');
+  p.innerText = item.description;
+  div.appendChild(input);
+  div.appendChild(p);
+  sect.appendChild(div);
+});
 
-  btn.innerHTML = 'Click me and check the console!';
+const clearSect = document.createElement('div');
+clearSect.className = 'clearSect';
+const clear = document.createElement('button');
+clear.innerText = 'Clear all completed';
+clear.className = 'clear';
+clearSect.appendChild(clear);
+sect.appendChild(clearSect);
 
-  element.appendChild(btn);
+console.log('Hello, webpack!');
 
-  return element;
-}
-
-document.body.appendChild(component());
+// document.body.appendChild(component());
