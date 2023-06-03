@@ -24,6 +24,12 @@ list.forEach((item) => {
   p.innerText = item.description;
   div.appendChild(input);
   div.appendChild(p);
+
+  const ellipse = document.createElement('i');
+  ellipse.className = 'fa-solid fa-ellipsis-vertical';
+  ellipse.classList.add('ellipse');
+  div.appendChild(ellipse);
+
   sect.appendChild(div);
 });
 

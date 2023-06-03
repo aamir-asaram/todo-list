@@ -29,12 +29,22 @@ body {
 
 #heading h1 {
   margin: 10px;
+  width: auto;
+  font-size: 26px;
+  font-weight: 200;
+}
+
+i {
+  position: absolute;
+  right: 27px;
+  color: gray;
+  cursor: pointer;
 }
 
 #add {
   display: flex;
   align-items: center;
-  margin: 10px;
+  width: 100%;
 }
 
 #input {
@@ -49,6 +59,10 @@ body {
   font-style: italic;
 }
 
+#input:focus {
+  outline: none;
+}
+
 .item {
   display: flex;
   align-items: center;
@@ -56,8 +70,12 @@ body {
   width: 100%;
 }
 
-.item * {
-  width: auto;
+.item p {
+  width: 95%;
+}
+
+.item i {
+  cursor: move;
 }
 
 .checkbox {
