@@ -3,10 +3,12 @@ import './style.css';
 
 const list = [
   {
+    index: 1,
     description: 'This is a description',
     checked: false,
   },
   {
+    index: 2,
     description: 'This is another description',
     checked: true,
   },
