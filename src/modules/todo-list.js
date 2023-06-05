@@ -52,7 +52,7 @@ export default class List {
     input.checked = task.checked;
     input.addEventListener('change', () => {
       p.blur();
-      this.tasks[this.tasks.indexOf(task)].checked = !this.tasks[this.tasks.indexOf(task)].checked;
+      this.tasks[this.tasks.indexOf(task)].checked();
       p.classList.toggle('checked');
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
     });
@@ -81,7 +81,7 @@ export default class List {
 
     p.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && p.value !== '') {
-        this.tasks[this.tasks.indexOf(task)].description = p.value;
+        this.tasks[this.tasks.indexOf(task)].updateDescription(p.value);
         localStorage.setItem('tasks', JSON.stringify(this.tasks));
         p.blur();
       }
