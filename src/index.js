@@ -19,3 +19,8 @@ add.addEventListener('keydown', (e) => {
     add.value = '';
   }
 });
+
+const reset = document.getElementById('reset');
+reset.addEventListener('click', () => {
+  list.reset();
+});
