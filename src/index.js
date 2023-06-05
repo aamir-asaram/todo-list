@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import './style.css';
 
 const list = [
@@ -42,7 +41,3 @@ clear.innerText = 'Clear all completed';
 clear.className = 'clear';
 clearSect.appendChild(clear);
 sect.appendChild(clearSect);
-
-console.log('Hello, webpack!');
-
-// document.body.appendChild(component());
