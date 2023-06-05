@@ -1,43 +1,30 @@
 import './style.css';
+import List from './modules/todo-list.js';
 
-const list = [
-  {
-    index: 1,
-    description: 'This is a description',
-    checked: false,
-  },
-  {
-    index: 2,
-    description: 'This is another description',
-    checked: true,
-  },
-];
+const list = new List();
 
 const sect = document.getElementById('list');
-list.forEach((item) => {
-  const div = document.createElement('div');
-  div.className = 'item';
-  const input = document.createElement('input');
-  input.classList.add('checkbox');
-  input.type = 'checkbox';
-  input.checked = item.checked;
-  const p = document.createElement('p');
-  p.innerText = item.description;
-  div.appendChild(input);
-  div.appendChild(p);
-
-  const ellipse = document.createElement('i');
-  ellipse.className = 'fa-solid fa-ellipsis-vertical';
-  ellipse.classList.add('ellipse');
-  div.appendChild(ellipse);
-
-  sect.appendChild(div);
+if (localStorage.getItem('tasks')) {
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  tasks.forEach((task) => {
+    const newTask = {
+      description: task.description,
+      index: task.index,
+      checked: task.checked,
+    };
+    list.add(newTask);
+  });
+}
+const add = document.getElementById('input');
+addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && add.value !== '') {
+    const newTask = {
+      description: add.value,
+      index: list.tasks.length + 1,
+      checked: false,
+    };
+    list.add(newTask);
+    add.value = '';
+  }
 });
 
-const clearSect = document.createElement('div');
-clearSect.className = 'clearSect';
-const clear = document.createElement('button');
-clear.innerText = 'Clear all completed';
-clear.className = 'clear';
-clearSect.appendChild(clear);
-sect.appendChild(clearSect);

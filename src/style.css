@@ -6,7 +6,11 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
-#list {
+body > * {
+  width: 80%;
+}
+
+#wrapper {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -15,8 +19,25 @@ body {
   margin-top: 20px;
 }
 
+#wrapper > * {
+  width: 100%;
+  height: 63px;
+  border-bottom: 1px solid darkorchid;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  height: auto;
+  border: none;
+
+}
+
+
 #list > * {
-  border-bottom: 1px solid gray;
+  width: 100%;
   height: 63px;
 }
 
@@ -38,12 +59,17 @@ i {
   right: 27px;
   color: gray;
   cursor: pointer;
+  border: none;
+}
+
+#reset:hover {
+  color: red;
 }
 
 #add {
   display: flex;
   align-items: center;
-  width: 100%;
+  border-bottom: 1px solid gray;
 }
 
 #input {
@@ -67,14 +93,31 @@ i {
   align-items: center;
   flex-direction: row;
   width: 100%;
+  border-bottom: 1px solid gray;
+
 }
 
-.item p {
-  width: 95%;
+.task {
+  width: 85%;
+  height: 90%;
+  border: none;
+  font-size: 16px;
+}
+
+.task:focus {
+  outline: none;
+}
+
+.task:hover {
+  cursor: default;
 }
 
 .item i {
   cursor: move;
+}
+
+.selected {
+  background-color: rgb(255, 248, 176);
 }
 
 .checkbox {
@@ -84,8 +127,29 @@ i {
   transform: scale(1.6);
 }
 
+.checked {
+  text-decoration: line-through;
+}
+
+#remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 63px;
+  height: 63px; */
+}
+
+.pointer:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .clearSect {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .clear {
@@ -98,4 +162,8 @@ i {
   font-weight: bold;
   color: gray;
   cursor: pointer;
+}
+
+.clear:hover {
+  color: red;
 }
