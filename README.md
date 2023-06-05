@@ -129,8 +129,6 @@ npm start
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
 - [ ] Add accounts
 - [ ] Add sub tasks
 - [ ] Add reordering
@@ -151,8 +149,6 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
 If you like this project please leave a star!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -164,10 +160,6 @@ If you like this project please leave a star!
 I would like to thank Microverse for providing the resources necessary for me to complete this project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
 
 <!-- LICENSE -->
 
