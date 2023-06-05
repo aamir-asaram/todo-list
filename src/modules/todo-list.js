@@ -7,7 +7,7 @@ const generateClearButton = () => {
   clear.className = 'clear';
   clearSect.appendChild(clear);
   sect.appendChild(clearSect);
-}
+};
 
 generateClearButton();
 
@@ -20,7 +20,6 @@ export default class List {
     this.tasks.push(task);
     this.appendToDom(task);
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
-    console.log(this.tasks);
   }
 
   get() {
@@ -35,82 +34,80 @@ export default class List {
     this.reload();
   }
 
-
   appendToDom(task) {
     const sect = document.getElementById('list');
     const div = document.createElement('div');
     div.className = 'item';
 
-    //create task description
+    // create task description
     const p = document.createElement('input');
     p.value = task.description;
     p.className = 'task';
     p.type = 'text';
 
-    //create checkbox
+    // create checkbox
     const input = document.createElement('input');
     input.classList.add('checkbox');
     input.type = 'checkbox';
     input.checked = task.checked;
     input.addEventListener('change', () => {
-        p.blur();
-        this.tasks[this.tasks.indexOf(task)].checked = !this.tasks[this.tasks.indexOf(task)].checked;
-        p.classList.toggle('checked');
-        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+      p.blur();
+      this.tasks[this.tasks.indexOf(task)].checked = !this.tasks[this.tasks.indexOf(task)].checked;
+      p.classList.toggle('checked');
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
     });
 
     div.appendChild(input);
     div.appendChild(p);
 
-    //create drag button
+    // create drag button
     const ellipse = document.createElement('i');
     ellipse.className = 'fa-solid fa-ellipsis-vertical';
     ellipse.classList.add('ellipse', 'drag');
     div.appendChild(ellipse);
 
-    //create remove button
+    // create remove button
     const rm = document.createElement('i');
     rm.className = 'fa-solid fa-trash pointer';
     rm.style.display = 'none';
     rm.classList.add('remove');
     rm.id = 'remove';
     rm.addEventListener('mousedown', () => {
-        this.remove(task);
+      this.remove(task);
     });
     div.appendChild(rm);
 
     sect.appendChild(div);
 
     p.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && p.value !== '') {
-            this.tasks[this.tasks.indexOf(task)].description = p.value;
-            localStorage.setItem('tasks', JSON.stringify(this.tasks));
-            p.blur();
-        }
+      if (e.key === 'Enter' && p.value !== '') {
+        this.tasks[this.tasks.indexOf(task)].description = p.value;
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+        p.blur();
+      }
     });
 
     p.addEventListener('blur', () => {
-        ellipse.style.display = 'block';
-        rm.style.display = 'none';
-        div.classList.toggle('selected');
-        p.classList.toggle('selected');
-
+      ellipse.style.display = 'block';
+      rm.style.display = 'none';
+      div.classList.toggle('selected');
+      p.classList.toggle('selected');
     });
 
-    p.addEventListener('focus', (e) => {
-        div.classList.toggle('selected');
-        p.classList.toggle('selected');
-        ellipse.style.display = 'none';
-        rm.style.display = 'block';
+    p.addEventListener('focus', () => {
+      div.classList.toggle('selected');
+      p.classList.toggle('selected');
+      ellipse.style.display = 'none';
+      rm.style.display = 'block';
     });
 
     div.addEventListener('click', () => {
-       p.focus();
+      p.focus();
     });
   }
 
   updateIndex(start) {
-    for (let i = start; i < this.tasks.length; i++) {
+    for (let i = start; i < this.tasks.length; i += 1) {
       this.tasks[i].index -= 1;
     }
   }

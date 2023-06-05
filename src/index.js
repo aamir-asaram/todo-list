@@ -2,8 +2,6 @@ import './style.css';
 import List from './modules/todo-list.js';
 
 const list = new List();
-
-const sect = document.getElementById('list');
 if (localStorage.getItem('tasks')) {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   tasks.forEach((task) => {
@@ -16,7 +14,7 @@ if (localStorage.getItem('tasks')) {
   });
 }
 const add = document.getElementById('input');
-addEventListener('keydown', (e) => {
+add.addEventListener('keydown', (e) => {
   if (e.key === 'Enter' && add.value !== '') {
     const newTask = {
       description: add.value,
@@ -27,4 +25,3 @@ addEventListener('keydown', (e) => {
     add.value = '';
   }
 });
-
