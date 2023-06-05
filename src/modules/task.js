@@ -1,16 +1,16 @@
 export default class Task {
   constructor(description, index) {
-      this.description = description;
-      this.checked = false;
-      this.index = index;
+    this.description = description;
+    this.checked = false;
+    this.index = index;
   }
 
   check() {
-      this.checked === true ? this.checked = false : this.checked = true;
+    this.checked = !this.checked;
+    console.log(this.checked);
   }
 
   updateDescription(description) {
-      this.description = description;
+    this.description = description;
   }
-
 }

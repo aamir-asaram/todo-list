@@ -11,6 +11,8 @@ const generateClearButton = () => {
   sect.appendChild(clearSect);
 };
 
+const task = new Task('test', 1);
+task.check();
 generateClearButton();
 
 export default class List {
@@ -132,10 +134,10 @@ export default class List {
   clearCompleted() {
     const button = document.querySelector('.clear');
     button.addEventListener('click', () => {
-        const completed = this.tasks.filter((task) => task.checked === true);
-        completed.forEach((task) => {
-            this.remove(task);
-        });
+      const completed = this.tasks.filter((task) => task.checked === true);
+      completed.forEach((task) => {
+        this.remove(task);
+      });
     });
-}
+  }
 }
