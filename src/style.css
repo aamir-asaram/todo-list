@@ -32,9 +32,7 @@ body > * {
   background-color: white;
   height: auto;
   border: none;
-
 }
-
 
 #list > * {
   width: 100%;
@@ -94,7 +92,6 @@ i {
   flex-direction: row;
   width: 100%;
   border-bottom: 1px solid gray;
-
 }
 
 .task {
@@ -135,8 +132,6 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 63px;
-  height: 63px; */
 }
 
 .pointer:hover {
