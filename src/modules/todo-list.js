@@ -11,12 +11,11 @@ const generateClearButton = () => {
   sect.appendChild(clearSect);
 };
 
-const task = new Task('test', 1);
-task.check();
 generateClearButton();
 
 export default class List {
   constructor() {
+    console.log(1);
     this.tasks = [];
     this.clearCompleted();
   }
