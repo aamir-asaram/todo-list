@@ -3,8 +3,6 @@ import List from './modules/todo-list.js';
 import Task from './modules/task.js';
 
 const list = new List();
-const list2 = new List();
-const list3 = new List();
 if (localStorage.getItem('tasks')) {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   tasks.forEach((task) => {
@@ -20,6 +18,11 @@ add.addEventListener('keydown', (e) => {
     list.add(newTask);
     add.value = '';
   }
+});
+
+const clear = document.querySelector('.clear');
+clear.addEventListener('click', () => {
+  list.clearCompleted();
 });
 
 const reset = document.getElementById('reset');
