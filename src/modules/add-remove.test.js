@@ -21,3 +21,15 @@ describe('Add task', () => {
     expect(div).not.toBe(null);
   });
 });
+
+describe('Remove task', () => {
+  test('Remove task from list', () => {
+    list.remove(task);
+    expect(list.tasks).not.toContain(task);
+  });
+
+  test('Remove task from DOM', () => {
+    const div = document.querySelector('.item');
+    expect(div).toBe(null);
+  })
+})
