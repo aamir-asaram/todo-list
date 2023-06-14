@@ -25,3 +25,23 @@ describe('Update task', () => {
     expect(tasks[0].description).toBe('new test');
   });
 });
+
+describe('Check task', () => {
+  test('check by default', () => {
+    expect(list.tasks[0].checked).toBeFalsy();
+  })
+
+  test('check', () => {
+    list.tasks[0].check();
+    expect(list.tasks[0].checked).toBeTruthy();
+  })
+})
+
+describe('clear check', () => {
+  test('clear completed task', () => {
+    list.add(new Task('task', 2));
+    list.add(new Task('task', 3));
+    list.clearCompleted();
+    expect(list.tasks.length).toBe(2);
+  })
+})
