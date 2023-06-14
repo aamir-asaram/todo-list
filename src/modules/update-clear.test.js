@@ -29,19 +29,19 @@ describe('Update task', () => {
 describe('Check task', () => {
   test('check by default', () => {
     expect(list.tasks[0].checked).toBeFalsy();
-  })
+  });
 
   test('check', () => {
     list.tasks[0].check();
     localStorage.setItem('tasks', JSON.stringify(list.tasks));
     expect(list.tasks[0].checked).toBeTruthy();
-  })
+  });
 
   test('check in local storage', () => {
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks[0].checked).toBeTruthy();
   });
-})
+});
 
 describe('clear check', () => {
   test('clear completed task', () => {
@@ -49,10 +49,10 @@ describe('clear check', () => {
     list.add(new Task('task', 3));
     list.clearCompleted();
     expect(list.tasks.length).toBe(2);
-  })
+  });
 
   test('clear completed task from local storage', () => {
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks.length).toBe(2);
   });
-})
+});
