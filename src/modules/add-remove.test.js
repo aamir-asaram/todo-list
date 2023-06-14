@@ -37,10 +37,10 @@ describe('Remove task', () => {
   test('Remove task from DOM', () => {
     const div = document.querySelector('.item');
     expect(div).toBe(null);
-  })
+  });
 
   test('Remove task from local storage', () => {
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks).not.toContain(task);
   });
-})
+});
