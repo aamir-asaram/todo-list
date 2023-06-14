@@ -1,24 +1,6 @@
-import Task from './task.js';
-
-const generateClearButton = () => {
-  const sect = document.getElementById('wrapper');
-  const clearSect = document.createElement('div');
-  clearSect.className = 'clearSect';
-  const clear = document.createElement('button');
-  clear.innerText = 'Clear all completed';
-  clear.className = 'clear';
-  clearSect.appendChild(clear);
-  sect.appendChild(clearSect);
-};
-
-const task = new Task('test', 1);
-task.check();
-generateClearButton();
-
 export default class List {
   constructor() {
     this.tasks = [];
-    this.clearCompleted();
   }
 
   add(task) {
@@ -132,12 +114,9 @@ export default class List {
   }
 
   clearCompleted() {
-    const button = document.querySelector('.clear');
-    button.addEventListener('click', () => {
-      const completed = this.tasks.filter((task) => task.checked === true);
-      completed.forEach((task) => {
-        this.remove(task);
-      });
+    const completed = this.tasks.filter((task) => task.checked === true);
+    completed.forEach((task) => {
+      this.remove(task);
     });
   }
 }

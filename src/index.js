@@ -20,6 +20,11 @@ add.addEventListener('keydown', (e) => {
   }
 });
 
+const clear = document.querySelector('.clear');
+clear.addEventListener('click', () => {
+  list.clearCompleted();
+});
+
 const reset = document.getElementById('reset');
 reset.addEventListener('click', () => {
   list.reset();

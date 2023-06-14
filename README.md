@@ -98,7 +98,10 @@ npm start
 
 To run tests, run the following command:
 
-None.
+```
+  npm test
+```
+
 
 ### Deployment
 
